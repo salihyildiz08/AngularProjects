@@ -1,0 +1,27 @@
+<div class="d-flex justify-content-center" style="margin-top:75px;">
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-header">
+        <h1 class="text-center">Login Page</h1>
+      </div>
+      <div class="card-body">
+          <form #loginForm="ngForm" (ngSubmit)="login(loginForm)" autocomplete="off">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" ngModel name="email" id="email" minlength="5" required email #email [appValid]="email.validity.valid">
+              <div class="invalid-feedback">Geçerli bir email adresi giriniz.</div>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" ngModel name="password" id="password" required #password [appValid]="password.validity.valid">
+              <div class="invalid-feedback">Geçerli bir şifre giriniz.</div>
+            </div>
+            <div class="form-group mt-2">
+                <button [disabled]="!loginForm.valid" class="btn btn-outline-primary w-100">Login</button>
+                <a routerLink="/register" style="float:right;">Sign Up</a>
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
